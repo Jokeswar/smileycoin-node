@@ -5,8 +5,10 @@ RUN apt-get update -y && \
     libboost-thread-dev libdb5.3++-dev libdb++-dev libdb5.3-dev libdb-dev \
     libssl-dev xxd
 
-WORKDIR /var/local/smly
+WORKDIR /smileycoin-node
 COPY smileycoind entrypoint.sh ./
+
+VOLUME [ "/var/local/smly" ]
 
 EXPOSE 9332
 CMD ./entrypoint.sh
